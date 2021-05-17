@@ -22,8 +22,8 @@ void bfree(void *);
 #define Bn_MIN(x, y) ((x) < (y) ? (x) : (y))
 #define Bn_SIZE(x) ((x)->size)
 #define Bn_ABS(x)                               \
-    ((x >> ((sizeof(bn_size) << 3) - 1)) ^ x) - \
-        (x >> ((sizeof(bn_size) << 3) - 1))
+    (((x >> ((sizeof(bn_size) << 3) - 1)) ^ x) - \
+        (x >> ((sizeof(bn_size) << 3) - 1)))
 #define Bn_INCREF(x) ((x)->refcnt++)
 #define Bn_SETREF(x, i) ((x)->refcnt = i)
 #define Bn_DECREF(x)                 \
